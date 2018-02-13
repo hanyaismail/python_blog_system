@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block body %}
+	<h1>Dashboard <small> Welcome! {{session.username}}</small></h1>
+	<a href="/create" class="btn btn-primary mb-2">Add Article</a>
+	<ul class="list-group">
+	<table class="table table-striped">
+  		<thead>
+    		<tr>
+      			<th scope="col">No.</th>
+      			<th scope="col">Title</th>
+      			<th scope="col">Created Date</th>
+      			<th scope="col"></th>
+    		</tr>
+  		</thead>
+  		<tbody>
+	{% for article in articles %}
+		<!-- {% if article.author == session.username %} -->
+			<tr>
+      			<th scope="row">{{loop.index}}</th>
+      			<td><a href="/article/{{article.id}}">{{article.title}}</a></td>
+      			<td>{{article.created_date}}</td>
+      			<td><a href="/edit_article/{{article.id}}" class="btn btn-primary mr-auto">Edit</a></td>
+            <td><a href="#" class="btn btn-danger mr-auto">Delete</a></td>
+    		</tr>
+		<!-- {% endif %} -->
+	{% endfor %}
+	  	</tbody>
+	</table>
+{% endblock %}
+
+
+  

@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1>Articles</h1>
+	{% for article in articles %}
+	<div class="card card-body bg-light pb-1 mb-2">
+		<h3><a href="/article/{{article.id}}">{{article.title}}</a></h3>
+		<hr>
+		<p>Written by {{article.author}} at {{article.created_date}}</p>
+	</div>
+	{% endfor %}
+{% endblock %}
